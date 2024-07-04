@@ -1,0 +1,24 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: currency-exchanger
+  liquibase:
+    change-log: classpath:liquibase/databasechangelog.xml
+    url: ${spring.datasource.url}
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
+  datasource:
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5555/currency-exchanger
+  jpa:
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+
+currate:
+  url: https://currate.ru/api
+  authToken: ${currate.authToken}

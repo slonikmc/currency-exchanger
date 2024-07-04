@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet id="create-table-exchanging-history" author="IvanovDmitriy">
+
+        <createTable tableName="exchanging-history">
+            <column name="id" type="uuid">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="amount" type="double"/>
+            <column name="exchange_currency" type="varchar"/>
+            <column name="receiving_currency" type="varchar"/>
+            <column name="converted_amount" type="double"/>
+            <column name="exchange_rate" type="real"/>
+            <column name="operation_date_time" type="timestamp"/>
+        </createTable>
+
+        <rollback>
+            <dropTable tableName="exchanging-history"/>
+        </rollback>
+
+        <comment>
+            Creating table exchanging-history
+        </comment>
+
+    </changeSet>
+
+
+</databaseChangeLog>
